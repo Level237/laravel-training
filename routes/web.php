@@ -18,5 +18,8 @@ Route::get('/', function () {
 });
 
 Route::get('post',function(){
-    return('la liste d\' articles');
+    return response()->json([
+        'title'=> 'mon titre',
+        'description'=>'ma description'
+    ]);
 });
