@@ -23,3 +23,7 @@ Route::get('post',function(){
         'description'=>'ma description'
     ]);
 });
+
+Route::get('articles',function(){
+    return view('articles');
+});
