@@ -7,6 +7,7 @@
     <title>Mon super site</title>
 </head>
 <body>
+    @include('partials.navbar')
     @yield('content')
 </body>
 </html>
