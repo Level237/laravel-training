@@ -13,17 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','App\Http\Controllers\ArticleControllers@index');
 
-Route::get('post',function(){
-    return response()->json([
-        'title'=> 'mon titre',
-        'description'=>'ma description'
-    ]);
-});
+// Route::get('post',function(){
+//     return response()->json([
+//         'title'=> 'mon titre',
+//         'description'=>'ma description'
+//     ]);
+// });
 
-Route::get('articles',function(){
-    return view('articles');
-});
+// Route::get('articles',function(){
+//     return view('articles');
+// });
