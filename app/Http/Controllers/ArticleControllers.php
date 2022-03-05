@@ -24,9 +24,14 @@ class ArticleControllers extends Controller
             1 => 'mon titre numéro 1',
             2 => 'mon titre numéro 2'
         ];
-        $post=$posts[$id];
+        $post=$posts[$id] ?? 'pas de titre';
 
         return view('article',compact('post'));
 
+    }
+
+    public function contact(){
+
+        return view('contact');
     }
 }

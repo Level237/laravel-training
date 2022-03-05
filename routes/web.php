@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/','App\Http\Controllers\ArticleControllers@index');
-Route::get('/post/{id}','App\Http\Controllers\ArticleControllers@show');
+Route::get('/post/{id}','App\Http\Controllers\ArticleControllers@show')->whereNumber('id');
 Route::get('/contact','App\Http\Controllers\ArticleControllers@contact');
 
 // Route::get('post',function(){
