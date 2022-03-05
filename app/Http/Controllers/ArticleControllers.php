@@ -17,4 +17,16 @@ class ArticleControllers extends Controller
 
         return view('articles',compact('posts'));
     }
+
+    public function show($id){
+
+        $posts=[
+            1 => 'mon titre numéro 1',
+            2 => 'mon titre numéro 2'
+        ];
+        $post=$posts[$id];
+
+        return view('article',compact('post'));
+
+    }
 }
