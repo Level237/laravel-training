@@ -8,9 +8,13 @@ class ArticleControllers extends Controller
 {
     public function index(){
 
-        $title="Mon super premier  Titre";
-        $title2="Mon super second   Titre";
+        $posts=[
+            'Mon super premier titre',
+            'Mon super second titre'
+        ];
 
-        return view('articles',compact('title','title2'));
+
+
+        return view('articles',compact('posts'));
     }
 }

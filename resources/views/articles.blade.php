@@ -8,7 +8,8 @@
 </head>
 <body>
     <h1>Listes des Articles</h1>
-    <h2>{{ $title }}</h2>
-    <h2>{{ $title2 }}</h2>
+    @foreach ($posts as $post )
+        <h3>{{ $post }}</h3>
+    @endforeach
 </body>
 </html>
