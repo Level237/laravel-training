@@ -20,11 +20,7 @@ class ArticleControllers extends Controller
 
     public function show($id){
 
-        $posts=[
-            1 => 'mon titre numéro 1',
-            2 => 'mon titre numéro 2'
-        ];
-        $post=$posts[$id] ?? 'pas de titre';
+    $post=Post::findOrFail($id);
 
         return view('article',compact('post'));
 
