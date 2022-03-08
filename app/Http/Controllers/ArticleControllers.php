@@ -30,4 +30,8 @@ class ArticleControllers extends Controller
 
         return view('contact');
     }
+
+    public function create(){
+        return view('form');
+    }
 }
