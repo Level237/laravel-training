@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class ArticleControllers extends Controller
 {
     public function index(){
 
-        $posts=[
-            'Mon super premier titre',
-            'Mon super second titre'
-        ];
+    $posts= Post::all();
+    dd($posts);
+
 
 
 
