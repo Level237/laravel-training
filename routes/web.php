@@ -16,7 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/','App\Http\Controllers\ArticleControllers@index')->name('welcome');
 Route::get('/post/{id}','App\Http\Controllers\ArticleControllers@show')->whereNumber('id')->name('posts.show');
 Route::get('/contact','App\Http\Controllers\ArticleControllers@contact')->name('contact');
-Route::get('/create','App\Http\Controllers\ArticleControllers@create')->name('post.create');
+Route::get('/post/create','App\Http\Controllers\ArticleControllers@create')->name('post.create');
+Route::post('/post/create','App\Http\Controllers\ArticleControllers@store')->name('post.store');
 // Route::get('post',function(){
 //     return response()->json([
 //         'title'=> 'mon titre',

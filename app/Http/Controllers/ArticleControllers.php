@@ -34,4 +34,11 @@ class ArticleControllers extends Controller
     public function create(){
         return view('form');
     }
+    public function store(Request $request){
+        $post=new Post();
+        $post->title=$request->title;
+        $post->content=$request->content;
+        $post->save();
+        dd('post créer');
+    }
 }
