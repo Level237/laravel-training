@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\Comment;
+use App\Models\comment;
 use App\Models\Image;
 use App\Models\Tag;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -27,5 +27,8 @@ class Post extends Model
 
     public function tags(){
         return $this->belongsToMany(Tag::class);
+    }
+    public function comments(){
+        return $this->morphMany(comment::class,'commentable');
     }
 }
