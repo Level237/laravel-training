@@ -5,6 +5,7 @@
 <h1>Listes des Articles</h1>
 
     <h3>{{ $post-> content }}</h3>
+    <span>{{$post->image ? $post->image->path : "pas d'images"}}</span>
 
     {{-- @foreach ($post->comments as $comment)
     <span>{{$comment->content}}</span>
