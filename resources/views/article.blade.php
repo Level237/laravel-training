@@ -17,5 +17,9 @@
         <span>Aucun commentaire</span>
     @endforelse
 
+    @foreach ($post->tags as $tag )
+        <span>{{$tag->name}}</span>
+    @endforeach
+
 @endsection
 
