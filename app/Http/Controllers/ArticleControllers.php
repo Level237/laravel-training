@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use App\Models\comment;
+use App\Models\Video;
 
 class ArticleControllers extends Controller
 {
@@ -45,5 +47,23 @@ class ArticleControllers extends Controller
             'title'=> $request->title,
             'content'=> $request->content
         ]);
+    }
+
+    public function register(){
+
+        $post=Post::find(11);
+        $video=Video::find(1);
+
+        $comment1=new comment(['content'=>'mon premier commentaire']);
+        $comment2=new comment(['content'=>'mon deuxieme commentaire']);
+        $comment3=new comment(['content'=>'mon troisième commentaire']);
+
+        $video->comments()->save($comment3);
+
+        $post->comments()->saveMany([
+            $comment1,
+            $comment2
+        ]);
+
     }
 }

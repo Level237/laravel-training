@@ -9,6 +9,11 @@ class comment extends Model
 {
     use HasFactory;
 
+    // protected $fillable=[
+    //     'content'
+    // ];
+    protected $guarded=[];
+
     public function commentable(){
         return $this->morphTo();
     }

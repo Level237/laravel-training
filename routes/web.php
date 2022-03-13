@@ -18,7 +18,7 @@ Route::get('/post/{id}','App\Http\Controllers\ArticleControllers@show')->whereNu
 Route::get('/contact','App\Http\Controllers\ArticleControllers@contact')->name('contact');
 Route::get('/post/create','App\Http\Controllers\ArticleControllers@create')->name('post.create');
 Route::post('/post/create','App\Http\Controllers\ArticleControllers@store')->name('post.store');
-Route::post('/create-polymorphics','App\Http\Controllers\ArticleControllers@register');
+Route::get('/register','App\Http\Controllers\ArticleControllers@register');
 
 // Route::get('post',function(){
 //     return response()->json([
