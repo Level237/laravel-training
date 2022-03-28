@@ -36,4 +36,8 @@ class Post extends Model
     public function imageArtist(){
         return $this->hasOneThrough(Artist::class,Image::class);
     }
+
+    public function latestComment(){
+        return $this->hasOne(comment::class)->latestOfMany();
+    }
 }
