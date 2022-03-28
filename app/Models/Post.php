@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\comment;
 use App\Models\Image;
+use App\Models\Artist;
 use App\Models\Tag;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -30,5 +31,9 @@ class Post extends Model
     }
     public function comments(){
         return $this->morphMany(comment::class,'commentable');
+    }
+
+    public function imageArtist(){
+        return $this->hasOneThrough(Artist::class,Image::class);
     }
 }
