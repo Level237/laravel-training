@@ -6,6 +6,7 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 use App\Models\comment;
 use App\Models\Video;
+use App\Rules\Uppercase;
 
 class ArticleControllers extends Controller
 {
@@ -38,7 +39,7 @@ class ArticleControllers extends Controller
     }
     public function store(Request $request){
         $request->validate([
-            'title'=>'required|min:5|max:255|unique:posts',
+            'title'=>['required','min:5','max:255','unique:posts',new Uppercase],
             'content'=>'required'
         ]);
 
