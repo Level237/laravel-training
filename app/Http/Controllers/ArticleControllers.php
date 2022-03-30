@@ -40,7 +40,7 @@ class ArticleControllers extends Controller
     }
     public function store(Request $request){
 
-        Storage::disk('local')->put('example.txt','Mon contenu de texte');
+        Storage::disk('local')->put('avatars',$request->avatar);
         die();
         // $request->validate([
         //     'title'=>['required','min:5','max:255','unique:posts',new Uppercase],
