@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\comment;
 use App\Models\Video;
 use App\Rules\Uppercase;
+use Illuminate\Support\Facades\Storage;
 
 class ArticleControllers extends Controller
 {
@@ -38,10 +39,13 @@ class ArticleControllers extends Controller
         return view('form');
     }
     public function store(Request $request){
-        $request->validate([
-            'title'=>['required','min:5','max:255','unique:posts',new Uppercase],
-            'content'=>'required'
-        ]);
+
+        Storage::disk('local')->put('example.txt','Mon contenu de texte');
+        die();
+        // $request->validate([
+        //     'title'=>['required','min:5','max:255','unique:posts',new Uppercase],
+        //     'content'=>'required'
+        // ]);
 
         Post::create([
             'title'=> $request->title,
