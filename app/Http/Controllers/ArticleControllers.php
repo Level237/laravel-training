@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use App\Models\comment;
+use App\Models\Image;
 use App\Models\Video;
 use App\Rules\Uppercase;
 use Illuminate\Support\Facades\Storage;
@@ -39,18 +40,34 @@ class ArticleControllers extends Controller
         return view('form');
     }
     public function store(Request $request){
-
-        Storage::disk('local')->put('avatars',$request->avatar);
-        die();
         // $request->validate([
         //     'title'=>['required','min:5','max:255','unique:posts',new Uppercase],
         //     'content'=>'required'
         // ]);
 
-        Post::create([
+        // Storage::disk('public')->put('avatars',$request->avatar);
+
+        $filename=time() .'.'.$request->avatar->extension();
+
+        $path= $request->file('avatar')->storeAs(
+            'avatars',
+            $filename,
+            'public'
+        );
+
+
+
+        $post= Post::create([
             'title'=> $request->title,
             'content'=> $request->content
         ]);
+
+        $image=new Image();
+        $image->path=$path;
+
+        $post->image()->save($image);
+
+        dd('post créer');
     }
 
     public function register(){
