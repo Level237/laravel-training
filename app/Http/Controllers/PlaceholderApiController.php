@@ -9,6 +9,9 @@ class PlaceholderApiController extends Controller
 {
     public function index(){
         $response=Http::get('https://jsonplaceholder.typicode.com/posts');
-        dd($response->json());
+
+        return view('PlaceholderApi.index',[
+            'data'=> $response->json()
+        ]);
     }
 }
